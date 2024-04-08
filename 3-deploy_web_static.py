@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-"""creates and distributes an archive to web servers"""
+"""creates distribute archive to web servers based on file 2-do_deploy_web_static.py"""
 
 from fabric.api import env, local, put, run
 from datetime import datetime
 from os.path import exists, isdir
 env.hosts = ['52.91.127.220', '54.237.127.5']
 
-
 def do_pack():
-    """generates tgz archive"""
+    """generates a tgz archive"""
     try:
         date = datetime.now().strftime("%Y%m%d%H%M%S")
         if isdir("versions") is False:
